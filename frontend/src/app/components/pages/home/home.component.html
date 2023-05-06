@@ -1,0 +1,48 @@
+<div class="main-container">
+    <app-tags></app-tags>
+    <ul>
+        <li *ngFor ="let fooditem of food">
+            <a routerLink="/fooditem/{{fooditem.id}}">
+                <div class="Food-img">
+                    <img  [src]="fooditem.imageUrl" [alt]="fooditem.name">
+                </div>
+                
+                <div class="details">
+                    <div style="display: flex;gap: 20px;">
+                        <p class="item_name">{{fooditem.name}}</p>
+                    <span class="favorite {{fooditem.favorite?'':'not'}}">❤</span>
+                    </div>
+                    <div class="rating">
+                        <star-rating
+                        [value]="fooditem.stars"
+                        [totalstars]="5"
+                        checkedcolor="orange"
+                        uncheckedcolor="white"
+                        size="18px"
+                        [readonly]="true">
+                        </star-rating>
+                    </div>
+                    
+                    <div class="product-item-footer">
+                        <div class="origins">
+                          <span *ngFor="let origin of fooditem.origins">
+                            {{origin}}
+                          </span>
+                        </div>
+              
+                        <div class="cook-time">
+                          <span>🕒</span>
+                          {{fooditem.cooktime}}
+                        </div>
+                      </div>
+                    
+                    <div class="pricetag">
+                        <span>{{fooditem.price | currency:'INR'}}</span>
+                    </div>
+                    
+                </div>
+            </a>
+
+        </li>
+    </ul>
+</div>

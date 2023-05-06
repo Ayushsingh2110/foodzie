@@ -1,0 +1,16 @@
+.main-container{
+    display:flex;
+    margin:auto;
+    height: 35rem;
+    width: 80%;
+    background-color: aliceblue;
+    position:relative;
+}
+.img-container{
+    border:1px solid black;
+    height: 35rem;
+}
+img{
+    max-height: 80%;
+    max-width: 80%;
+}

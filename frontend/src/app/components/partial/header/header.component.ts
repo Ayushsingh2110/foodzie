@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+// @ts-ignore
+import * as $ from 'jquery';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,4 +13,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
+

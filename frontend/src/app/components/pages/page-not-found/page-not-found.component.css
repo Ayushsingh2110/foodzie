@@ -1,0 +1,13 @@
+.container{
+    background-color: aliceblue;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 10rem;
+    position:relative;
+    text-align: center;
+    font-size: large;
+    padding: 130px;
+    color:grey;
+}

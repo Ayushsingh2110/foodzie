@@ -1,0 +1,41 @@
+<div class="main-container row">
+    <div class="img-container col sm-3">
+        <img src="{{FoodDetails.imageUrl}}">
+    </div>
+    <div class="col sm-9">
+        <h3>{{FoodDetails.name}}</h3>
+        <span class="favorite {{FoodDetails.favorite?'':'not'}}">❤</span>
+        <div>
+           Origin:
+          <span *ngFor = 'let country of FoodDetails.origins'>
+            {{country}}
+           </span>
+        </div>
+    <div class="pricetag">
+        <span>{{FoodDetails.price | currency:'INR'}}</span>
+    </div>
+    <div class="cook-time">
+        <span>🕒</span>
+        {{FoodDetails.cooktime}}
+    </div>
+    <div class="rating">
+        <star-rating
+        [value]="FoodDetails.stars"
+        [totalstars]="5"
+        checkedcolor="orange"
+        uncheckedcolor="white"
+        size="18px"
+        [readonly]="true">
+        </star-rating>
+    </div>
+    <div>
+        <a *ngFor = 'let tag of FoodDetails.tags'>
+            {{tag}}
+        </a>
+    </div>
+    </div>
+    
+    
+
+</div>
+

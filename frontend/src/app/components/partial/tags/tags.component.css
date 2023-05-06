@@ -1,0 +1,16 @@
+ul{
+    display:flex;
+    list-style-type: none; 
+    justify-content: center;   
+}
+ul li{
+    background-color: #f0f0f0;
+    padding: 0.3rem 1rem;
+    margin: 0.2rem 0.15rem;
+    border-radius: 10rem;
+    
+}
+ul li a{
+    font-weight: 600;
+    color:brown;
+}
