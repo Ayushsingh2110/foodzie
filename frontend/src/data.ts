@@ -4,7 +4,7 @@ export const sample_data: Food[] = [
     {   
         id:"1",
         name:"Paneer Mutter",
-        price:160,
+        price:0,
         imageUrl:'./assets/paneer_mutter.jpg',
         stars: 4.5, 
         tags: ['Indian','main dish'],

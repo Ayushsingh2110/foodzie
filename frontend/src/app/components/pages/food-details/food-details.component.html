@@ -5,8 +5,8 @@
     <div class="data-container col-5 align-self-center">
         <div class="name_fav">
             <span class="name">{{FoodDetails.name}}</span>
-            <span class="favorite {{FoodDetails.favorite?'':'not'}}">
-                ❤
+            <span class="">
+              <i class="favorite {{FoodDetails.favorite?'':'not'}} fa-sharp fa-solid fa-heart" style="color: #9fa8b7;"></i>
             </span>
         </div>
         
@@ -39,7 +39,7 @@
             <span>{{FoodDetails.price | currency:'INR'}}</span>
          </div>
 
-        <button>Add to Cart</button>
+        <button (click)="addToCart()">Add to Cart</button>
 
         <div class="tags-cont">
             <a *ngFor = 'let tag of FoodDetails.tags' routerLink="/tag/{{tag}}">
