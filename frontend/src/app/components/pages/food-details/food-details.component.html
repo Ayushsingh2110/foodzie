@@ -1,4 +1,10 @@
-<div class="main-container row justify-content-center">
+<app-empty-result
+[visible]='!FoodDetails.name'
+message="Not found!"
+routerText="Back to Home"
+>
+</app-empty-result>
+<div *ngIf="FoodDetails.name" class="main-container row justify-content-center">
     <div class="img-container col-5 align-self-center">
         <img src="{{FoodDetails.imageUrl}}">
     </div>

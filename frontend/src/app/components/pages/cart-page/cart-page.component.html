@@ -1,5 +1,9 @@
-<p>cart-page works!</p>
-<div class="main-container">
+<app-empty-result
+[visible]="!Cart || !Cart.items.length"
+message="Nothing added in the cart"
+routerText="Go to Home page"
+></app-empty-result>
+<div class="main-container" *ngIf="Cart && Cart.items.length">
     <ul>
         <li *ngFor="let cartItem of Cart.items">
             <div>

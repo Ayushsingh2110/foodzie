@@ -11,6 +11,7 @@ import { SearchComponent } from './components/partial/search/search.component';
 import { TagsComponent } from './components/partial/tags/tags.component';
 import { FoodDetailsComponent } from './components/pages/food-details/food-details.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
+import { EmptyResultComponent } from './components/partial/empty-result/empty-result.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
     SearchComponent,
     TagsComponent,
     FoodDetailsComponent,
-    CartPageComponent
+    CartPageComponent,
+    EmptyResultComponent
   ],
   imports: [
     BrowserModule,
