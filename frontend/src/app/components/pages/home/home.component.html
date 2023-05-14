@@ -1,12 +1,12 @@
 <div class="main-container">
     <app-tags></app-tags>
     <app-empty-result
-    [visible]="!food || !food.length"
+    [visible]="!food.length"
     message="Sorry, this is not in our menu"
     routerText="Search here!"
     >
     </app-empty-result>
-    <ul>
+    <ul *ngIf = food.length>
         <li *ngFor ="let fooditem of food">
             <a routerLink="/fooditem/{{fooditem.id}}">
                 <div class="Food-img">

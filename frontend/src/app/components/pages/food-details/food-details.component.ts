@@ -14,7 +14,8 @@ export class FoodDetailsComponent implements OnInit {
   constructor(activatedRoute:ActivatedRoute, private fooditem:FoodServiceService,
     private cartService: CartService, private router:Router) {
     activatedRoute.params.subscribe((params) =>{
-      if(params.id) this.FoodDetails = fooditem.getFoodDatabyId(params.id) 
+      if(params.id) 
+        this.fooditem.getFoodDatabyId(params.id).subscribe(result => this.FoodDetails = result); 
     })
    }
 
