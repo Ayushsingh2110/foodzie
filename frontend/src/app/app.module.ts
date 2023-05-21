@@ -12,6 +12,10 @@ import { TagsComponent } from './components/partial/tags/tags.component';
 import { FoodDetailsComponent } from './components/pages/food-details/food-details.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { EmptyResultComponent } from './components/partial/empty-result/empty-result.component';
+import { LoginFormComponent } from './components/pages/login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,13 +27,21 @@ import { EmptyResultComponent } from './components/partial/empty-result/empty-re
     TagsComponent,
     FoodDetailsComponent,
     CartPageComponent,
-    EmptyResultComponent
+    EmptyResultComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RatingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass:'toast-bottom-right',
+      newestOnTop:false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
