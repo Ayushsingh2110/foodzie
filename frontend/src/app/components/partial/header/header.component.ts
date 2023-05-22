@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import * as $ from 'jquery';
+import { user } from 'src/app/resources/datatypes/user';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,9 +11,14 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   cartCount=0;
-  constructor(cartService:CartService) {
+  User!:user;
+  constructor(cartService:CartService, userService: UserService) {
     cartService.getCartObservable().subscribe((cart) =>{
       this.cartCount = cart.TotalCount;
+    })
+
+    userService.userObservable.subscribe((User) => {
+      this.User = User;
     })
    }
 

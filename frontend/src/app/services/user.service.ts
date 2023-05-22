@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<user>(new user());
+  private userSubject = new BehaviorSubject<user>(this.getUserFromLocal());
   public userObservable:Observable<user>;
   constructor(private http:HttpClient, private toastrService : ToastrService) {
     this.userObservable = this.userSubject.asObservable();
@@ -20,6 +20,7 @@ export class UserService {
     return this.http.post<user>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) =>{
+          this.setUsertoLocalStore(user);
           this.userSubject.next(user);
           this.toastrService.success(
             `Welcome to Foodmine ${user.name}`,
@@ -31,5 +32,15 @@ export class UserService {
         }
       })
     );
+  }
+
+  private setUsertoLocalStore(user:user){
+    localStorage.setItem('FoodzieUser', JSON.stringify(user));
+  }
+
+  private getUserFromLocal():user{
+    const UserJson = localStorage.getItem('FoodzieUser');
+    if(UserJson) return JSON.parse(UserJson) as user;
+    else return new user();
   }
 }

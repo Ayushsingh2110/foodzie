@@ -4,10 +4,10 @@
         </div>
         <div class="header-content">
             <ul>
-                <li><a routerLink="/login-form">Login</a></li>
+                <li *ngIf="!User.token"><a routerLink="/login-form">Login</a></li>
                 
                 <li class="menu-container">
-                    <a>Ayush</a>
+                    <a>{{User.name}}</a>
                     <div class="menu">
                      <a>Profile</a>
                      <a>Orders</a>
