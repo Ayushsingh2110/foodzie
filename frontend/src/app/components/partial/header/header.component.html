@@ -6,12 +6,12 @@
             <ul>
                 <li *ngIf="!User.token"><a routerLink="/login-form">Login</a></li>
                 
-                <li class="menu-container">
+                <li *ngIf="User.token" class="menu-container">
                     <a>{{User.name}}</a>
                     <div class="menu">
                      <a>Profile</a>
                      <a>Orders</a>
-                     <a>Logout</a>
+                     <a (click)="UserLogout()">Logout</a>
                     </div>
                 </li>
                 <li>

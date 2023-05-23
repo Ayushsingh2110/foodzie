@@ -34,6 +34,12 @@ export class UserService {
     );
   }
 
+  logout(){
+    this.userSubject.next(new user());
+    localStorage.removeItem('FoodzieUser');
+    window.location.reload();
+  }
+
   private setUsertoLocalStore(user:user){
     localStorage.setItem('FoodzieUser', JSON.stringify(user));
   }

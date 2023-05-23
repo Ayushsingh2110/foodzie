@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HeaderComponent implements OnInit {
   cartCount=0;
   User!:user;
-  constructor(cartService:CartService, userService: UserService) {
+  constructor(cartService:CartService, private userService: UserService) {
     cartService.getCartObservable().subscribe((cart) =>{
       this.cartCount = cart.TotalCount;
     })
@@ -25,6 +25,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  UserLogout(){
+    this.userService.logout();
+  }
 
 }
 
