@@ -27,8 +27,8 @@ export class UserService {
             'login successful'
           )
         },
-        error:(errResp) => {
-          this.toastrService.error(errResp.error, 'login failed')
+        error:() => {
+          this.toastrService.error('If you don\'t have an account then please Sign Up','login failed')
         }
       })
     );
