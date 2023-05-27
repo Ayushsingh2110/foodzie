@@ -3,6 +3,7 @@ import { sample_users } from "../data";
 import jwt  from "jsonwebtoken";
 import asyncHandler from 'express-async-handler';
 import { UserModel } from "../models/user.model";
+import { FoodModel } from "../models/food.model";
 
 const router = Router();
 
@@ -18,16 +19,17 @@ router.get('/seed', asyncHandler(
     }
 ))
 
-router.post('/login',(req,res) =>{
+router.post('/login', asyncHandler (
+    async (req,res) =>{
     const {email, password} = req.body;
-    const user = sample_users.find(user => user.email === email &&
-        user.password === password);
+    const user = await UserModel.findOne({email, password});
     if(user){
         res.send(createToken(user));
     }else{
         res.status(400).send('User name or Password is not valid');
     }
 })
+);
 
 const createToken = (user:any) => {
     const token = jwt.sign({
