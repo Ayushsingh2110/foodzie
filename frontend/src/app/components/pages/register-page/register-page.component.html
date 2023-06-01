@@ -1,0 +1,74 @@
+<div class="SignUp-container">
+    <div class="form-container">
+        <form [formGroup]="SignUpForm" (ngSubmit)="submit()">
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name" 
+            formControlName="name" class="is-invalid form-control input"
+            [class.is-invalid]="signControl.name.errors && isRegister">
+            <div *ngIf="signControl.name.errors && isRegister">
+                <small class="text-danger" *ngIf="signControl.name.errors.required">
+                    Name is required
+                </small>
+            </div>
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter your Email" 
+            formControlName="email" class="is-invalid form-control input"
+            [class.is-invalid]="signControl.email.errors && isRegister">
+            <div *ngIf="signControl.email.errors && isRegister">
+                <small class="text-danger" *ngIf="signControl.email.errors.email">
+                     Enter valid Email
+                </small>
+                <small class="text-danger" *ngIf="signControl.email.errors.required">
+                    Email is required
+                </small>
+            </div>
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter your Password(Must be atleast 8 characters)" 
+            formControlName="password" class="is-invalid form-control input"
+            [class.is-invalid]="signControl.password.errors && isRegister">
+            <div *ngIf="signControl.password.errors && isRegister">
+                <small class="text-danger" *ngIf="signControl.password.errors.minLength(8)">
+                     Password must include minimum 8 characters
+                </small>
+                <small class="text-danger" *ngIf="signControl.password.errors.required">
+                    Password is required
+                </small>
+            </div>
+
+            <label>Re-enter Password</label>
+            <input type="password" placeholder="Re-enter password" 
+            formControlName="confirmPassword" class="is-invalid form-control input"
+            [class.is-invalid]="signControl.password.errors && isRegister">
+            <small class="text-danger" *ngIf="signControl.checkPassword">
+                Re-entered password doesn't match
+           </small>
+            <div *ngIf="signControl.confirmPassword.errors && isRegister">
+                <small class="text-danger" *ngIf="signControl.confirmPassword.errors.required">
+                    Please Re-enter the password
+                </small>
+            </div>
+
+            <label>Address</label>
+            <input type="text" placeholder="Enter delivery Address" 
+            formControlName="address" class="is-invalid form-control input"
+            [class.is-invalid]="signControl.address.errors && isRegister">
+            <div *ngIf="signControl.address.errors && isRegister">
+                <small class="text-danger" *ngIf="signControl.address.errors.minLength">
+                    Please enter detailed address
+                </small>
+                <small class="text-danger" *ngIf="signControl.address.errors.required">
+                    address is required
+                </small>
+            </div>
+
+            <button class="button-input" type="submit">Sign Up</button>
+            <div class="goToLogin">
+                Already have an account? <br>Then go to
+                <a routerLink="/login-form" [queryParams]="{returnURL:registerReturnURI}">Login</a>
+            </div>
+        </form>
+    </div>
+
+</div>

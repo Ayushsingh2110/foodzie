@@ -22,11 +22,11 @@
         <input type="password" class="is-invalid form-control" 
         [class.is-invalid]="logcontrol.password.errors && Submitted" 
         placeholder="Enter password" formControlName="password">
-        <div *ngIf="logcontrol.password.errors && Submitted">
+         <div *ngIf="logcontrol.password.errors && Submitted">
             <small class="text-danger" *ngIf="logcontrol.password.errors.required">
                 Password is required
             </small>
-        </div>
+          </div>
         </div>
         
 
@@ -35,6 +35,10 @@
           type="submit">
              Login
         </button>
+        <div class="goToSignUp">
+            Don't have any account? <br>Then register at
+            <a routerLink="/register">Sign Up</a>
+        </div>
     </form>
 </div> 
 </div>

@@ -2,8 +2,8 @@ import { Router } from "express";
 import { sample_users } from "../data";
 import jwt  from "jsonwebtoken";
 import asyncHandler from 'express-async-handler';
-import { UserModel } from "../models/user.model";
-import { FoodModel } from "../models/food.model";
+import { User, UserModel } from "../models/user.model";
+import bcrypt from 'bcryptjs';
 
 const router = Router();
 
@@ -41,5 +41,31 @@ const createToken = (user:any) => {
     user.token = token;
     return user;
 }
+
+router.post('/register', asyncHandler(
+    async (req,res) => {
+        const {name,email,password,address} = req.body;
+        const user = await UserModel.findOne({email});
+        if(user){
+            res.status(400).send('Account already exists, please login!');
+            return; 
+        }
+
+        const encrypPass = await bcrypt.hash(password, 10);
+
+        const newUser:User = {
+            id:'',
+            name,
+            email: email.toLowerCase(),
+            password: encrypPass,
+            token:'',
+            address,
+            isAdmin: false
+        }
+
+        const UserToDB = await UserModel.create(newUser);
+        res.send(createToken(UserToDB));
+    }
+))
 
 export default router;
