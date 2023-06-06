@@ -1,0 +1,13 @@
+ <div class="container">
+    <div class="user-details">
+        <form [formGroup]="checkoutForm" class="checkoutForm">
+         <text-input [control]="cfc.name" label="Name"></text-input>
+         <text-input [control]="cfc.address" label="Address"></text-input>
+        </form>
+        <div class="map">
+            <h2>Choose address on map</h2>
+
+        </div>
+    </div>
+    <order-item-list [order]="Order"></order-item-list>
+ </div>

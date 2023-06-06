@@ -2,31 +2,27 @@
 <div class='form-container'>
     <h3>Login</h3>
     <form [formGroup]="LoginForm" (ngSubmit)="submit()">
+        
         <div class="email-input">
-            <label>Email</label>
-        <input type="email" class="is-invalid form-control" 
-        [class.is-invalid]="logcontrol.email.errors && Submitted" 
-        placeholder="Enter you Email" formControlName="email">
-            <div *ngIf="logcontrol.email.errors && Submitted">
-                <small class="text-danger" *ngIf="logcontrol.email.errors.email">
-                     Enter valid Email
-                </small>
-                <small class="text-danger" *ngIf="logcontrol.email.errors.required">
-                    Email is required
-                </small>
-            </div>
-        </div>
+            <text-input 
+            label="Email"
+            [control]="logcontrol.email"
+            placeHolder="Enter your Email"
+            [showError]="Submitted"
+            type="email"
+            >
+            </text-input>
+        </div>     
         
         <div class="password-input">
-            <label>Password</label>
-        <input type="password" class="is-invalid form-control" 
-        [class.is-invalid]="logcontrol.password.errors && Submitted" 
-        placeholder="Enter password" formControlName="password">
-         <div *ngIf="logcontrol.password.errors && Submitted">
-            <small class="text-danger" *ngIf="logcontrol.password.errors.required">
-                Password is required
-            </small>
-          </div>
+            <text-input 
+            label="Password"
+            [control]="logcontrol.password"
+            placeHolder="Enter your password"
+            [showError]="Submitted"
+            type="password"
+            >
+            </text-input>
         </div>
         
 

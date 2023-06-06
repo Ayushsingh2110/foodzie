@@ -1,0 +1,42 @@
+<div class="container">
+    <table class="selected-items">
+        <tr>
+            <td>
+                <h3>Selected Items:</h3>
+            </td>
+            <th> Name</th>
+            <th> Price</th>
+            <th> Quantity</th>
+            <th> Final Price</th>
+        </tr>
+        <tr *ngFor="let item of order.Items" class="">
+            <td>
+                <a routerLink="/food/{{item.food.id}}">
+                    <img [src]="item.food.imageUrl">
+                </a>
+            </td>
+            <td>
+                {{item.food.name}}
+            </td>
+            <td>
+                {{item.food.price | currency:'INR'}}
+            </td>
+            <td>
+                {{item.quantity}}
+            </td>
+            <td>
+                {{item.Price | currency:'INR'}}
+            </td>
+        </tr>
+        
+    </table>
+    <div class="Final-bill">
+        <div id="TotalCount">
+            {{order.totalCount}}
+        </div>
+        <div id="TotalPrice">
+            {{order.totalPrice | currency:'INR'}}
+        </div>
+    </div>
+</div>
+

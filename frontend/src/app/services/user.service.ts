@@ -70,4 +70,8 @@ export class UserService {
     if(UserJson) return JSON.parse(UserJson) as user;
     else return new user();
   }
+
+  getCurrentuser():user{
+    return this.userSubject.value;
+  }
 }

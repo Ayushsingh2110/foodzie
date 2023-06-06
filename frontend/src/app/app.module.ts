@@ -19,6 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { LoadingComponent } from './components/partial/loading/loading.component'
 import { LoadingInterceptor } from './resources/interceptors/loading.interceptor';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { InputContainerComponent } from './components/partial/input-container/input-container.component';
+import { InputValidationComponent } from './components/partial/input-validation/input-validation.component';
+import { TextInputComponent } from './components/partial/text-input/text-input.component';
+import { OrderItemListComponent } from './components/partial/order-item-list/order-item-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { LoadingInterceptor } from './resources/interceptors/loading.interceptor
     EmptyResultComponent,
     LoginFormComponent,
     RegisterPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    CheckoutComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    OrderItemListComponent
   ],
   imports: [
     BrowserModule,

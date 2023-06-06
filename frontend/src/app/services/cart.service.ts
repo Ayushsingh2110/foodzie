@@ -17,6 +17,10 @@ export class CartService {
     return CartItem? JSON.parse(CartItem) : new cart();
   }
 
+  getWholeCart(): cart{
+    return this.cartSubject.value;
+  }
+
   private setCartItemToLocalStorage():void{
     this.Cart.TotalPrice = this.Cart.items
     .reduce((prevSum, currentItem) => prevSum + currentItem.Price, 0);

@@ -1,0 +1,54 @@
+.container{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.selected-items{
+    width: 100%; margin-top: 3vh;
+    border: 1px solid #ffffffee;
+    border-radius: 1px;
+}
+.selected-items tr:not(:first-child){
+    margin: 10px;
+    height: 8rem;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-collapse: separate;
+}
+th{
+    text-align: center;
+}
+td{
+    height: 3rem;
+    width: 15vw;
+    text-align: center;
+}
+td h3{
+    color:grey;
+    font-size:large;
+}
+td img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 25%;
+    object-fit: cover;
+}
+.Final-bill{
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+#TotalCount, #TotalPrice{
+    font-size: large;
+}
+#TotalCount::before{
+    content: 'Total Food Items:';
+}
+#TotalPrice::before{
+    content: 'Total Price:';
+}
