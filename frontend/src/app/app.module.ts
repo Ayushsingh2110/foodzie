@@ -24,6 +24,7 @@ import { InputContainerComponent } from './components/partial/input-container/in
 import { InputValidationComponent } from './components/partial/input-validation/input-validation.component';
 import { TextInputComponent } from './components/partial/text-input/text-input.component';
 import { OrderItemListComponent } from './components/partial/order-item-list/order-item-list.component';
+import { MapComponent } from './components/partial/map/map.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { OrderItemListComponent } from './components/partial/order-item-list/ord
     InputContainerComponent,
     InputValidationComponent,
     TextInputComponent,
-    OrderItemListComponent
+    OrderItemListComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

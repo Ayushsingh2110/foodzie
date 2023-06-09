@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let {name,address} = this.userService.getCurrentuser()
+    let {name,address} = this.userService.getCurrentuser
     this.checkoutForm = this.formBuilder.group({
       name:[name, Validators.required],
       address: [address, Validators.required]
@@ -47,5 +47,6 @@ export class CheckoutComponent implements OnInit {
     this.Order.name = this.cfc.name.value;
     this.Order.address = this.cfc.address.value;
   }
+
 
 }

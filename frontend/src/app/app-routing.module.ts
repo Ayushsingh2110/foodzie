@@ -7,6 +7,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { LoginFormComponent } from './components/pages/login-form/login-form.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path:'cart-page', component:CartPageComponent},
   {path:'login-form', component:LoginFormComponent},
   {path:'register', component:RegisterPageComponent},
-  {path:'checkout', component:CheckoutComponent},
+  {path:'checkout', component:CheckoutComponent, canActivate:[AuthGuard]},
   {path:'**',component:PageNotFoundComponent}
 ];
 

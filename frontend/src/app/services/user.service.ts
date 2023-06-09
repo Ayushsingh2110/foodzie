@@ -71,7 +71,7 @@ export class UserService {
     else return new user();
   }
 
-  getCurrentuser():user{
+  public get getCurrentuser():user{
     return this.userSubject.value;
   }
 }
