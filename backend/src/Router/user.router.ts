@@ -33,7 +33,7 @@ router.post('/login', asyncHandler (
 
 const createToken = (user:any) => {
     const token = jwt.sign({
-        email:user.email, isAdmin:user.isAdmin
+        id: user.id, email:user.email, isAdmin:user.isAdmin
     },'YouNeverKnow',{
         expiresIn: '15d'
     });

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Order } from 'src/app/resources/datatypes/order';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,7 +20,9 @@ export class CheckoutComponent implements OnInit {
     cartService: CartService,
     private userService : UserService,
     private formBuilder : FormBuilder,
-    private toastrService : ToastrService
+    private toastrService : ToastrService,
+    private orderService : OrderService,
+    private router: Router
   ) { 
     const wholeCart = cartService.getWholeCart();
     this.Order.Items = wholeCart.items;
@@ -44,9 +48,26 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
+    if(!this.Order.addressOnMap){
+      this.toastrService.warning('Please select your location on the Map', 'Incomplete Details!')
+    }
+
     this.Order.name = this.cfc.name.value;
     this.Order.address = this.cfc.address.value;
+
+    this.orderService.create(this.Order).subscribe({
+      next:() => {
+        this.router.navigateByUrl('/payment')
+      },
+      error:(errorResponse) => {
+        this.toastrService.error(errorResponse.error, 'cart');
+      }
+      
+    }
+    )
   }
+
+
 
 
 }

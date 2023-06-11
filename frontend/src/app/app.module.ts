@@ -25,6 +25,7 @@ import { InputValidationComponent } from './components/partial/input-validation/
 import { TextInputComponent } from './components/partial/text-input/text-input.component';
 import { OrderItemListComponent } from './components/partial/order-item-list/order-item-list.component';
 import { MapComponent } from './components/partial/map/map.component';
+import { AuthInterceptor } from './resources/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MapComponent } from './components/partial/map/map.component';
     })
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

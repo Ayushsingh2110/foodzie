@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Order } from 'src/app/resources/datatypes/order';
+import { CheckoutComponent } from '../../pages/checkout/checkout.component';
 
 @Component({
   selector: 'order-item-list',
@@ -11,9 +12,13 @@ export class OrderItemListComponent implements OnInit {
   @Input()
   order!:Order;
   
-  constructor() { }
+  constructor(private checkOut: CheckoutComponent) { }
 
   ngOnInit(): void {
+  }
+
+  GoToPayment(){
+    this.checkOut.createOrder();
   }
 
 }

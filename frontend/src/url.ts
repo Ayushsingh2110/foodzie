@@ -7,3 +7,6 @@ export const food_by_id = food + '/';
 
 export const USER_LOGIN_URL = Default + '/api/user/login';
 export const USER_REGISTER_URL = Default + '/api/user/register';
+
+export const ORDER_URL = Default + '/api/orders'
+export const ORDER_REGISTER_URL = ORDER_URL + '/create'
