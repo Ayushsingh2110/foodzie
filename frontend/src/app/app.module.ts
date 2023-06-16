@@ -26,6 +26,7 @@ import { TextInputComponent } from './components/partial/text-input/text-input.c
 import { OrderItemListComponent } from './components/partial/order-item-list/order-item-list.component';
 import { MapComponent } from './components/partial/map/map.component';
 import { AuthInterceptor } from './resources/interceptors/auth.interceptor';
+import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AuthInterceptor } from './resources/interceptors/auth.interceptor';
     InputValidationComponent,
     TextInputComponent,
     OrderItemListComponent,
-    MapComponent
+    MapComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { LoginFormComponent } from './components/pages/login-form/login-form.com
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'login-form', component:LoginFormComponent},
   {path:'register', component:RegisterPageComponent},
   {path:'checkout', component:CheckoutComponent, canActivate:[AuthGuard]},
+  {path:'payment-page', component:PaymentPageComponent, canActivate:[AuthGuard]},
   {path:'**',component:PageNotFoundComponent}
 ];
 

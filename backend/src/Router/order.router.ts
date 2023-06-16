@@ -25,6 +25,12 @@ router.post('/creat', asyncHandler(async (req:any,res) => {
     res.send(newOrder);
 }))
 
+router.get('/gotopayment', asyncHandler(async (req:any,res) => {
+    const order = await OrderModel.findOne({user: req.user.id, status: OrderStatus.NEW});
+    if(order) res.send(order);
+    else res.status(400).send();
+}))
+
 export default router;
 
 

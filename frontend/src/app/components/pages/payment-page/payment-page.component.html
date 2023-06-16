@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Final Bill</h1>
+    <div class="content">
+        <div>
+            <h3>Name:</h3>
+            <span>{{order.name}}</span>
+        </div>
+        <div>
+            <h3>Address:</h3>
+            <span>{{order.address}}</span>
+        </div>
+    </div>
+    <order-item-list [order]="order"></order-item-list>
+</div>

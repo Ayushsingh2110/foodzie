@@ -10,3 +10,4 @@ export const USER_REGISTER_URL = Default + '/api/user/register';
 
 export const ORDER_URL = Default + '/api/orders'
 export const ORDER_REGISTER_URL = ORDER_URL + '/create'
+export const ORDER_PAYMENT = ORDER_URL + '/gotopayment'
